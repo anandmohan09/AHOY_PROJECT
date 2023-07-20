@@ -1,9 +1,52 @@
 import React from 'react';
+import {useState,useEffect} from 'react';
 import '../index.css';
 import Card from 'react-bootstrap/Card';
 import {Link} from 'react-router-dom';
+import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+
 
 function Location(){
+//   const baseURL = "https://rehntitapistaging.azurewebsites.net/api/BreakType/GetBreakType?IsActive=false&BreakTypeId=-1&BusinessId=4&BusinessLocationId=5&PageNo=1&PageSize=10";
+//   const [post, setPost] =useState('');
+// function clickedLocation(e){
+//   e.preventDefault();
+//   console.log('hello');
+ 
+// const profile1={
+//   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6InN1cHBvcnRAYWx3YXlzYW5vdGhlcndhdmUuY29tIiwibmFtZWlkIjoiNiIsImp0aSI6ImM3MDJkZjY2LTI1ZmMtNDU1MS05Y2I3LTExNWIyOTE5MzlmNCIsImV4cCI6MTY4OTYzMjA2NH0.9EZZM59FuS5OQHNkWfcJA9WFRG7_8vGE0BsxWh6kgw8",
+//   'BusinessId':'4',
+//   'BusinessLocationId':'5',
+//   'breakTypeId': '-1',
+// }
+ 
+//     axios.get(baseURL,profile1).then((response) => {
+//       setPost(response.data);
+//       console.log(response.data);
+//     })
+
+//     .catch((error)=>{
+//       console.log(error);
+//     })
+
+
+// }
+let c=localStorage.getItem('keys')
+console.log(c)
+  useEffect(() => {
+    toast.success(c, {
+        position: toast.POSITION.BOTTOM_RIGHT,
+    });
+    localStorage.clear();
+  },[])
+
+
+
+
+
+
+
     return (
         <>
             <div className='location'>
@@ -85,6 +128,18 @@ function Location(){
       </Card>
                </div>
             </div>
+            <ToastContainer
+position="bottom-right"
+autoClose={3000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+theme="light"
+/>
         </>
     )
 }
